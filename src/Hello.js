@@ -1,6 +1,5 @@
 import React from 'react';
 // 리액트를 사용하려면 React 를 import 해주어야한다.
-
 // 컴포넌트 는 대문자로 시작한다.
 // jsx를 리턴한다.
 // html처럼 생겼지만 html은 아니다.
