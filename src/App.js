@@ -3,9 +3,11 @@ import React from 'react';
 import Hello from './Hello';
 // Wrapper 컴포넌트를 불러온다.
 import Wrapper from './Wrapper';
-
+// Counter 컴포넌트를 불러온다.
+import Counter from './Counter';
 // App.css 를 불러와서 적용한다.
 import './App.css';
+
 
 // Hello 컴포넌트는 여러번 재사용 할 수있다.
 function App() {
@@ -39,6 +41,9 @@ function App() {
             isSpecial 로만 정의해주면 isSpecial={true} 로 설정한 것과 같다.
         */}
         <Hello name="react" color="red" isSpecial={true}/>
+        
+        {/* Counter 컴포넌트 */}
+        <Counter />
     </Wrapper>
   );
 }
