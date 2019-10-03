@@ -34,7 +34,11 @@ function App() {
         {/* class는 className으로 사용해야한다. 동작은 하지만 경고창이 뜨며, className이 제대로된 방식이다. */}
         <div className="gray-box"></div>
 
-        <Hello name="react" color="red" />
+        {/* 
+            {} 로 감싸주는 이유 ? true 도 자바스크립트 값이기 때문 
+            isSpecial 로만 정의해주면 isSpecial={true} 로 설정한 것과 같다.
+        */}
+        <Hello name="react" color="red" isSpecial={true}/>
     </Wrapper>
   );
 }
