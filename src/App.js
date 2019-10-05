@@ -7,6 +7,7 @@ import Wrapper from './Wrapper';
 import Counter from './Counter';
 // App.css 를 불러와서 적용한다.
 import './App.css';
+import InputSample from './InputSample';
 
 
 // Hello 컴포넌트는 여러번 재사용 할 수있다.
@@ -44,6 +45,9 @@ function App() {
         
         {/* Counter 컴포넌트 */}
         <Counter />
+
+        {/* InputSample 컴포넌트 */}
+        <InputSample />
     </Wrapper>
   );
 }
