@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 function InputSample () {
     // text 상태값을 '' 으로 초기화
@@ -10,6 +10,9 @@ function InputSample () {
         name: '',
         nickname: '',
     });
+
+    // 랜더링과 상관없는 변수를 다룰때도 사용한다.
+    const nameInput = useRef();
     // inputs의 name, 과 nickname을 편하게 출력하기 위해 비구조화 할당을 사용해 추출한다.
     const { name, nickname } = inputs;
 
@@ -35,7 +38,7 @@ function InputSample () {
         };
         // inputs[name] = value;
         setInputs(nextInputs);
-        
+
         // 따로 변수로 선언할 필요없이 setInputs 에 바로 넣어주어도 된다.
         /*
             setInputs({
@@ -52,6 +55,8 @@ function InputSample () {
             name: '',
             nickname: '',
         });
+        // current 가 useRef가 참조한 DOM을 가리킨다.
+       nameInput.current.focus();
     };
 
     return (
@@ -69,6 +74,7 @@ function InputSample () {
                 placeholder="이름" 
                 onChange={onChange} 
                 value={name} 
+                ref={nameInput}
             />
             <input 
                 name="nickname" 
