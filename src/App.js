@@ -8,6 +8,7 @@ import Counter from './Counter';
 // App.css 를 불러와서 적용한다.
 import './App.css';
 import InputSample from './InputSample';
+import UserList from './UserList';
 
 
 // Hello 컴포넌트는 여러번 재사용 할 수있다.
@@ -48,6 +49,9 @@ function App() {
 
         {/* InputSample 컴포넌트 */}
         <InputSample />
+
+        {/* UserList 컴포넌트  */}
+        <UserList />
     </Wrapper>
   );
 }
