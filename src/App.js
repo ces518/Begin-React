@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 // Hello 컴포넌트를 불러온다.
 import Hello from './Hello';
 // Wrapper 컴포넌트를 불러온다.
@@ -23,6 +23,37 @@ function App() {
     fontSize: '10px', // 기본단위는 픽셀이다.
     padding: '1rem',
   };
+
+  // UserList컴포넌트 내에 존재하던 Users 배열을 app 컴포넌트로 이동
+  const users = [
+      {
+          id: 1,
+          username: 'june',
+          email: 'june@gmail.com',
+      },
+      {
+          id: 2,
+          username: 'bear',
+          email: 'bearr@gmail.com',
+      },
+      {
+          id: 3,
+          username: 'user',
+          email: 'user@gmail.com',
+      },
+  ];
+
+  // users 배열의 다음 엘리먼트에서 사용할 id값
+  // useState로 관리해주어도 되지만 랜더링과 관련이 없기떄문에 사용하는 것이다.
+  // 특정 DOM을 선택할때만 사용하는것이 아닌 변수처럼 사용할 수 있음
+  const nextId = useRef(4);
+
+  const onCreate = () => {
+    // 현재 nextId 가져오기
+    console.log(nextId.current);
+    nextId.current += 1; // nextId 값 증가
+  };
+
 
   // return 에서 () 괄호는 가독성을 위해 사용하는것이다.
   // JSX가 한줄인 경우라면 생략해도 된다.
@@ -51,7 +82,7 @@ function App() {
         <InputSample />
 
         {/* UserList 컴포넌트  */}
-        <UserList />
+        <UserList users={users}/>
     </Wrapper>
   );
 }

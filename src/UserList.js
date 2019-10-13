@@ -12,25 +12,7 @@ function User ({ user }) {
     );
 };
 
-function UserList () {
-    const users = [
-        {
-            id: 1,
-            username: 'june',
-            email: 'june@gmail.com',
-        },
-        {
-            id: 2,
-            username: 'bear',
-            email: 'bearr@gmail.com',
-        },
-        {
-            id: 3,
-            username: 'user',
-            email: 'user@gmail.com',
-        },
-    ];
-
+function UserList ({ users }) {
     return (
         // 비 효율적인 방법
         // 배열의 요소를 하나하나 직접 JSX로 작성해준다.
