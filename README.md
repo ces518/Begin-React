@@ -21,3 +21,9 @@
 [8.여러개의 input 상태 관리하기](./chapters/8.여러개의_input_상태_관리하기.md)
 
 [9.useRef로 특정 DOM 선택하기](./chapters/9.useRef로_특정_DOM_선택하기.md)
+
+[10.배열로 렌더링하기](./chapters/10.배열로_렌더링하기.md)
+
+[11.useRef로 컴포넌트 안의 변수 만들기](./chapters/11.useRef로_컴포넌트_안의_변수_만들기.md)
+
+[12.배열에 항목 추가하기](./chapters/12.배열에_항목_추가하기.md)
