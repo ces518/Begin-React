@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 // Hello 컴포넌트를 불러온다.
 import Hello from './Hello';
 // Wrapper 컴포넌트를 불러온다.
@@ -9,6 +9,7 @@ import Counter from './Counter';
 import './App.css';
 import InputSample from './InputSample';
 import UserList from './UserList';
+import CreateUser from './CreateUser';
 
 
 // Hello 컴포넌트는 여러번 재사용 할 수있다.
@@ -24,8 +25,17 @@ function App() {
     padding: '1rem',
   };
 
+  // CreateUser 컴포넌트에서 사용할 input 상태
+  const [inputs, setInputs] = useState({
+      username: '',
+      email: '',
+  });
+  // props로 내려보내기 편리하기 위해 inputs에서 추출
+  const { username, email } = inputs;
+
   // UserList컴포넌트 내에 존재하던 Users 배열을 app 컴포넌트로 이동
-  const users = [
+  // state로 변경하여 상태로 관리한다.
+  const [users, setUsers] = useState([
       {
           id: 1,
           username: 'june',
@@ -41,7 +51,16 @@ function App() {
           username: 'user',
           email: 'user@gmail.com',
       },
-  ];
+  ]);
+
+  // username, email 상태 변경 이벤트
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
 
   // users 배열의 다음 엘리먼트에서 사용할 id값
   // useState로 관리해주어도 되지만 랜더링과 관련이 없기떄문에 사용하는 것이다.
@@ -49,6 +68,27 @@ function App() {
   const nextId = useRef(4);
 
   const onCreate = () => {
+    const user = {
+      id: nextId.current,
+      username,
+      email,
+    };
+
+    // 배열의 불변성을 지키면서 상태값을 바꾸는 방법
+    // 1. 전개 연산자 사용
+    // 기존 배열을 복사하여 새로운 항목이 추가된다.
+    setUsers([...users, user]);
+
+    // 2. concat 함수 사용한다.
+    // 여러개의 배열을 하나로 합쳐 새로운 배열을 생성한다.
+    setUsers(users.concat(user));
+    
+    // 유저 생성후 input의 값들을 비워준다.
+    setInputs({
+      username: '',
+      email: '',
+    });
+
     // 현재 nextId 가져오기
     console.log(nextId.current);
     nextId.current += 1; // nextId 값 증가
@@ -80,6 +120,14 @@ function App() {
 
         {/* InputSample 컴포넌트 */}
         <InputSample />
+
+        {/* CreateUser 컴포넌트 */}
+        <CreateUser 
+          username={username}
+          email={email}
+          onChange={onChange}
+          onCreate={onCreate}
+        />
 
         {/* UserList 컴포넌트  */}
         <UserList users={users}/>
