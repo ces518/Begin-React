@@ -94,6 +94,10 @@ function App() {
     nextId.current += 1; // nextId 값 증가
   };
 
+  const onRemove = id => {
+    // 삭제하기를 원하는 요소를 제외한 user요소들만 배열로 추출한다.
+    setUsers(users.filter(user => user.id !== id));
+  };
 
   // return 에서 () 괄호는 가독성을 위해 사용하는것이다.
   // JSX가 한줄인 경우라면 생략해도 된다.
@@ -130,7 +134,7 @@ function App() {
         />
 
         {/* UserList 컴포넌트  */}
-        <UserList users={users}/>
+        <UserList users={users} onRemove={onRemove}/>
     </Wrapper>
   );
 }
