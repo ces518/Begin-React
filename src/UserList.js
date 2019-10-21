@@ -4,11 +4,20 @@ import React from 'react';
 // 하나의 컴포넌트 파일에 두개의 컴포넌트를 정의한다.
 // 파일을 분리해도 됨.
 
-function User ({ user, onRemove }) {
-    const { username, email, id } = user;
+function User ({ user, onRemove, onToggle }) {
+    const { username, email, id, active } = user;
     return (
         <div>
-            <b>{ username }</b> <span>({ email })</span>
+            <b style={{
+                color: active ? 'green' : 'black',
+                cursor: 'pointer',
+            }}
+                onClick={() => onToggle(id)}
+            >
+                { username }
+            </b>
+            &nbsp;
+            <span>({ email })</span>
             {/* 
                 onClick 내에서 함수롤 새로 만들어서 onRemove를 호출하는 형태로 해주어야함  
                 함수형태로 사용하지않고 바로 호출해버리면 랜더링이 끝나자마자 해당 함수가 바로 호출된다. 
@@ -18,7 +27,7 @@ function User ({ user, onRemove }) {
     );
 };
 
-function UserList ({ users, onRemove }) {
+function UserList ({ users, onRemove, onToggle }) {
     return (
         // 비 효율적인 방법
         // 배열의 요소를 하나하나 직접 JSX로 작성해준다.
@@ -74,6 +83,7 @@ function UserList ({ users, onRemove }) {
                             user={user} 
                             key={user.id} 
                             onRemove={onRemove}
+                            onToggle={onToggle}
                         />
                     )
                 )

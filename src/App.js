@@ -40,16 +40,19 @@ function App() {
           id: 1,
           username: 'june',
           email: 'june@gmail.com',
+          active: true,
       },
       {
           id: 2,
           username: 'bear',
           email: 'bearr@gmail.com',
+          active: false,
       },
       {
           id: 3,
           username: 'user',
           email: 'user@gmail.com',
+          active: false,
       },
   ]);
 
@@ -99,6 +102,15 @@ function App() {
     setUsers(users.filter(user => user.id !== id));
   };
 
+  const onToggle = id => {
+    // 배열 내부의 값을 수정할때는 map함수를 사용한다.
+    setUsers(users.map(
+      user => user.id === id
+        ? { ...user, active: !user.active }
+        : user
+    ));
+  };
+
   // return 에서 () 괄호는 가독성을 위해 사용하는것이다.
   // JSX가 한줄인 경우라면 생략해도 된다.
   return (
@@ -134,7 +146,7 @@ function App() {
         />
 
         {/* UserList 컴포넌트  */}
-        <UserList users={users} onRemove={onRemove}/>
+        <UserList users={users} onRemove={onRemove} onToggle={onToggle}/>
     </Wrapper>
   );
 }
