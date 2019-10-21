@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // 중복을 제거하기위해 컴포넌트를 하나 정의해준다.
 // 하나의 컴포넌트 파일에 두개의 컴포넌트를 정의한다.
@@ -6,6 +6,43 @@ import React from 'react';
 
 function User ({ user, onRemove, onToggle }) {
     const { username, email, id, active } = user;
+
+    // useEffect 를 사용해 마운트/언마운트시 작업을 설정함
+    useEffect(() => {
+        console.log('컴포넌트 마운트');
+        
+        // ui 가 화면에 나타난 이후
+        // DOM에 바로 접근해도 된다.
+        // props -> state
+        // REST API
+        // D3
+        // setInterval, setTimeout
+
+
+        // 클리너 함수
+        return () => {
+            // clearInterval, clearTimeout
+            // lib 인스턴스 제거
+            console.log('컴포넌트 언마운트');
+        };
+    }, []); // [] 의존되는 값들을 이 배열에 넣어준다.
+    // [] 값을 생략하면 상태값이 변경되지 않더라도 모든 컴포넌트가 리랜더링됨
+
+
+    // 특정 값이 수정되고 나면 호출이 된다.
+    useEffect(() => {
+        // 특정 값이 호출된 후 호출됨
+        console.log(user);
+
+        return () => {
+            // 특정 값이 수정되기 이전에 호출이 된다.
+            // 사라지기 전에도 호출이 된다.
+            console.log('user값 바뀌기전');
+        };
+    }, [user]); // 의존되는 값이 변경되거나, 설정될때 호출된다
+    // useEffect 내에서 props나, state값을 참조한다면 [] 배열 내에 넣어주어야한다.
+
+
     return (
         <div>
             <b style={{
