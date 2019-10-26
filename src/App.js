@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo } from 'react';
+import React, { useRef, useState, useMemo, useCallback } from 'react';
 // Hello 컴포넌트를 불러온다.
 import Hello from './Hello';
 // Wrapper 컴포넌트를 불러온다.
@@ -61,20 +61,20 @@ function App() {
   ]);
 
   // username, email 상태 변경 이벤트
-  const onChange = (e) => {
+  const onChange = useCallback((e) => {
     const { name, value } = e.target;
     setInputs({
       ...inputs,
       [name]: value,
     });
-  };
+  }, [inputs]);
 
   // users 배열의 다음 엘리먼트에서 사용할 id값
   // useState로 관리해주어도 되지만 랜더링과 관련이 없기떄문에 사용하는 것이다.
   // 특정 DOM을 선택할때만 사용하는것이 아닌 변수처럼 사용할 수 있음
   const nextId = useRef(4);
 
-  const onCreate = () => {
+  const onCreate = useCallback(() => {
     const user = {
       id: nextId.current,
       username,
@@ -99,21 +99,21 @@ function App() {
     // 현재 nextId 가져오기
     console.log(nextId.current);
     nextId.current += 1; // nextId 값 증가
-  };
+  }, [username, email, users]);
 
-  const onRemove = id => {
+  const onRemove = useCallback(id => {
     // 삭제하기를 원하는 요소를 제외한 user요소들만 배열로 추출한다.
     setUsers(users.filter(user => user.id !== id));
-  };
+  }, [users]);
 
-  const onToggle = id => {
+  const onToggle = useCallback(id => {
     // 배열 내부의 값을 수정할때는 map함수를 사용한다.
     setUsers(users.map(
       user => user.id === id
         ? { ...user, active: !user.active }
         : user
     ));
-  };
+  }, [users]);
 
   // useMemo Hooks를 사용하여 값을 기억해둔다.
   // deps[] 배열에 넣어둔 값이 변경될때만 다시 함수를 실행한다.
