@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useMemo } from 'react';
 // Hello 컴포넌트를 불러온다.
 import Hello from './Hello';
 // Wrapper 컴포넌트를 불러온다.
@@ -11,6 +11,10 @@ import InputSample from './InputSample';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
 
+function countActiveUsers (users) {
+  console.log('활성된 사용자수 세는중 ...');
+  return users.filter(user => user.active).length;
+};
 
 // Hello 컴포넌트는 여러번 재사용 할 수있다.
 function App() {
@@ -111,6 +115,11 @@ function App() {
     ));
   };
 
+  // useMemo Hooks를 사용하여 값을 기억해둔다.
+  // deps[] 배열에 넣어둔 값이 변경될때만 다시 함수를 실행한다.
+  // 리랜더링시마다 호출되지않음! 필요할때만 사용된다.
+  const count = useMemo(() => countActiveUsers(users), [users]);
+
   // return 에서 () 괄호는 가독성을 위해 사용하는것이다.
   // JSX가 한줄인 경우라면 생략해도 된다.
   return (
@@ -147,6 +156,13 @@ function App() {
 
         {/* UserList 컴포넌트  */}
         <UserList users={users} onRemove={onRemove} onToggle={onToggle}/>
+
+        {/* 활성화 된 사용자 수 */}
+        {/* 
+          활성화 혹은 비활성화를 시킬때 마다 새롭게 계산을 한다. 
+          문제: inputs 들의 상태가 변경되어도 리랜더링 되기때문에 리랜더링시 마다 활성 사용자수를 다시 세고있다.
+        */}
+        <div>활성 사용자수: {count}</div>
     </Wrapper>
   );
 }
