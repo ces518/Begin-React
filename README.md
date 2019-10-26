@@ -33,3 +33,7 @@
 [14.배열의 항목 수정하기](./chapters/14.배열의_항목_수정하기.md)
 
 [15.useEffect를 사용하여 마운트 언마운트 업데이트시 작업 설정하기](./chapters/15.useEffect를_사용하여_마운드_언마운트_업데이트시_진행할_작업_설정하기.md)
+
+[16.useMemo를 사용하여 연산한 값 재사용하기](./chapters/16.useMemo를_사용하여_연산한값_재사용하기.md)
+
+[17.useCallback을 사용하여 함수 재사용하기](./chapters/17.useCallback을_사용하여_함수_재사용하기.md)
