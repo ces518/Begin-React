@@ -84,11 +84,12 @@ function App() {
     // 배열의 불변성을 지키면서 상태값을 바꾸는 방법
     // 1. 전개 연산자 사용
     // 기존 배열을 복사하여 새로운 항목이 추가된다.
-    setUsers([...users, user]);
+    // 함수형 업데이트 방식으로 변경
+    setUsers(users => [...users, user]);
 
     // 2. concat 함수 사용한다.
     // 여러개의 배열을 하나로 합쳐 새로운 배열을 생성한다.
-    setUsers(users.concat(user));
+    setUsers(users => users.concat(user));
     
     // 유저 생성후 input의 값들을 비워준다.
     setInputs({
@@ -99,21 +100,21 @@ function App() {
     // 현재 nextId 가져오기
     console.log(nextId.current);
     nextId.current += 1; // nextId 값 증가
-  }, [username, email, users]);
+  }, [username, email]);
 
   const onRemove = useCallback(id => {
     // 삭제하기를 원하는 요소를 제외한 user요소들만 배열로 추출한다.
-    setUsers(users.filter(user => user.id !== id));
-  }, [users]);
+    setUsers(users => users.filter(user => user.id !== id));
+  }, []);
 
   const onToggle = useCallback(id => {
     // 배열 내부의 값을 수정할때는 map함수를 사용한다.
-    setUsers(users.map(
+    setUsers(users => users.map(
       user => user.id === id
         ? { ...user, active: !user.active }
         : user
     ));
-  }, [users]);
+  }, []);
 
   // useMemo Hooks를 사용하여 값을 기억해둔다.
   // deps[] 배열에 넣어둔 값이 변경될때만 다시 함수를 실행한다.

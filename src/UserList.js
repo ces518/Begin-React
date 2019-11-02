@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 // 하나의 컴포넌트 파일에 두개의 컴포넌트를 정의한다.
 // 파일을 분리해도 됨.
 
-function User ({ user, onRemove, onToggle }) {
+const User = React.memo(function User ({ user, onRemove, onToggle }) {
     const { username, email, id, active } = user;
 
     // useEffect 를 사용해 마운트/언마운트시 작업을 설정함
@@ -62,7 +62,7 @@ function User ({ user, onRemove, onToggle }) {
             <button onClick={() => onRemove(id)}>삭제</button>
         </div>
     );
-};
+});
 
 function UserList ({ users, onRemove, onToggle }) {
     return (
@@ -129,4 +129,6 @@ function UserList ({ users, onRemove, onToggle }) {
     );
 };
 
-export default UserList;
+// React.memo의 2번째 파라메터로 prevProps와 nextProps를 비교해서, true, false값에 따라 리랜더링 여부를 결정할수 있다.
+// True: 리랜더링 안함, false: 리랜더링 
+export default React.memo(UserList, (prevProps, nextProps) => prevProps.users === nextProps.users);
