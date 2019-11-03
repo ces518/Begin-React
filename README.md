@@ -41,3 +41,5 @@
 [18.React.memo를 사용한 컴포넌트 리랜더링 방지](./chapters/18.React.memo를_사용한_컴포넌트_리랜더링_방지.md)
 
 [19.useReducer 기초](./chapters/19.useReducer_기초.md)
+
+[20.useReducer - App컴포넌트에서 useReducer 사용하기](./chapters/20.useReducer_App에서_useReducer사용하기.md)
