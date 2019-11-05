@@ -32,7 +32,7 @@ const initialState = {
       },
   ]
 };
-
+ 
 
 function reducer (state, action) {
   switch (action.type) {
