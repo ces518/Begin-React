@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
+import { UserDispatch } from './App';
 
 // 중복을 제거하기위해 컴포넌트를 하나 정의해준다.
 // 하나의 컴포넌트 파일에 두개의 컴포넌트를 정의한다.
 // 파일을 분리해도 됨.
 
-const User = React.memo(function User ({ user, onRemove, onToggle }) {
+const User = React.memo(function User ({ user }) {
     const { username, email, id, active } = user;
+
+    const dispatch = useContext(UserDispatch);
 
     // useEffect 를 사용해 마운트/언마운트시 작업을 설정함
     useEffect(() => {
@@ -49,7 +52,7 @@ const User = React.memo(function User ({ user, onRemove, onToggle }) {
                 color: active ? 'green' : 'black',
                 cursor: 'pointer',
             }}
-                onClick={() => onToggle(id)}
+                onClick={() => dispatch({ type: 'TOGGLE_USER', id })}
             >
                 { username }
             </b>
@@ -59,12 +62,12 @@ const User = React.memo(function User ({ user, onRemove, onToggle }) {
                 onClick 내에서 함수롤 새로 만들어서 onRemove를 호출하는 형태로 해주어야함  
                 함수형태로 사용하지않고 바로 호출해버리면 랜더링이 끝나자마자 해당 함수가 바로 호출된다. 
             */}
-            <button onClick={() => onRemove(id)}>삭제</button>
+            <button onClick={() => dispatch({ type: 'REMOVE_USER', id })}>삭제</button>
         </div>
     );
 });
 
-function UserList ({ users, onRemove, onToggle }) {
+function UserList ({ users }) {
     return (
         // 비 효율적인 방법
         // 배열의 요소를 하나하나 직접 JSX로 작성해준다.
@@ -119,8 +122,6 @@ function UserList ({ users, onRemove, onToggle }) {
                         <User 
                             user={user} 
                             key={user.id} 
-                            onRemove={onRemove}
-                            onToggle={onToggle}
                         />
                     )
                 )

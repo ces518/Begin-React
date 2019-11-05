@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext, useRef } from 'react';
+import useInputs from './useInputs';
+import { UserDispatch } from './App';
 
 
 // 상태관리는 따로하지않고 props로 받아서 사용한다.
@@ -6,7 +8,25 @@ import React from 'react';
 // email = 이메일 상태값
 // onChange = 텍스트값 변경시 이벤트
 // onCreate = 생성시 이벤트
-function CreateUser ({ username, email, onChange, onCreate }) {
+function CreateUser () {
+    const [form, onChange, reset] = useInputs({ username: '', email: '' });
+    const nextId = useRef(4);
+    const { username, email } = form;
+    const dispatch = useContext(UserDispatch);
+
+    const onCreate = () => {
+        dispatch({
+          type: 'CREATE_USER',
+          user: {
+            id: nextId.current,
+            username,
+            email,
+          }
+        });
+        nextId.current += 1;
+        reset();
+    };
+    
     return (
         <div>
             <input 

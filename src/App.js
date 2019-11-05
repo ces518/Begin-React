@@ -1,13 +1,9 @@
-import React, { useMemo, useRef, useCallback, useReducer } from 'react';
-
-// Wrapper 컴포넌트를 불러온다.
-import Wrapper from './Wrapper';
+import React, { useMemo, useReducer, createContext } from 'react';
 
 // App.css 를 불러와서 적용한다.
 import './App.css';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
-import useInputs from './useInputs';
 
 function countActiveUsers (users) {
   console.log('활성된 사용자수 세는중 ...');
@@ -64,61 +60,28 @@ function reducer (state, action) {
   }
 };
 
-// Hello 컴포넌트는 여러번 재사용 할 수있다.
+
+// UserList의 User 컴포넌트로 바로 전달해주기 위해 Context API 를 활용하여 context를 생성해주고,
+// onChange, onToggle 함수를 넘겨주는것 보다, dispatch 함수를 전달해 줌으로써 User컴포넌트에서 직접 사용하게끔 하는방법을 선택한다.
+// UserDispatch.Provider를 이용해 dispatch 를 넘겨준다.
+export const UserDispatch = createContext(null);
+
+// Hello 컴포넌트는 여러번 재사용 할 수 있다.
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [form, onChange, reset] = useInputs({ username: '', email: '' });
-  const nextId = useRef(4);
   const { users } = state;
-  const { username, email } = form;
-
-  const onCreate = useCallback(() => {
-    dispatch({
-      type: 'CREATE_USER',
-      user: {
-        id: nextId.current,
-        username,
-        email,
-      }
-    });
-    nextId.current += 1;
-    reset();
-  }, [username, email, reset]);
-
-  const onToggle = useCallback(id => {
-    dispatch({
-      type: 'TOGGLE_USER',
-      id,
-    });
-  }, []);
-
-  const onRemove = useCallback(id => {
-    dispatch({
-      type: 'REMOVE_USER',
-      id,
-    });
-  }, []);
 
   const count = useMemo(() => countActiveUsers(users), [users]);
   // return 에서 () 괄호는 가독성을 위해 사용하는것이다.
   // JSX가 한줄인 경우라면 생략해도 된다.
   return (
-    <Wrapper>
+    <UserDispatch.Provider value={dispatch}>
        
         {/* CreateUser 컴포넌트 */}
-        <CreateUser 
-          username={username} 
-          email={email}
-          onChange={onChange}
-          onCreate={onCreate}
-        />
+        <CreateUser />
 
         {/* UserList 컴포넌트  */}
-        <UserList 
-          users={users}
-          onToggle={onToggle}
-          onRemove={onRemove} 
-        />
+        <UserList users={users}/>
 
         {/* 활성화 된 사용자 수 */}
         {/* 
@@ -126,7 +89,7 @@ function App() {
           문제: inputs 들의 상태가 변경되어도 리랜더링 되기때문에 리랜더링시 마다 활성 사용자수를 다시 세고있다.
         */}
         <div>활성 사용자수: { count }</div>
-    </Wrapper>
+    </UserDispatch.Provider>
   );
 }
 
