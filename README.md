@@ -49,3 +49,5 @@
 [22.Context API를 사용한 전역 값 관리](./chapters/22.Context_API를_사용한_전역값_관리.md)
 
 [23.userDispatch Context 만들기](./chapters/23.userDispatch_Context_만들기.md)
+
+[24.Immer를 사용한 더 쉬운 불변성 지키기](./chapters/24.Immer를_사용한_더_쉬운_불변성_지키기.md)
