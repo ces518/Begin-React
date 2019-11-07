@@ -1,5 +1,7 @@
 import React, { useMemo, useReducer, createContext } from 'react';
-
+// immer 를 불러와서 사용한다.
+// 보통 immer라고 사용하지않고, produce 라는 명칭으로 사용한다.
+import produce from 'immer';
 // App.css 를 불러와서 적용한다.
 import './App.css';
 import UserList from './UserList';
