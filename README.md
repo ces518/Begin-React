@@ -51,3 +51,7 @@
 [23.userDispatch Context 만들기](./chapters/23.userDispatch_Context_만들기.md)
 
 [24.Immer를 사용한 더 쉬운 불변성 지키기](./chapters/24.Immer를_사용한_더_쉬운_불변성_지키기.md)
+
+[25.리듀서 immer로 구현하기](./chapters/25.리듀서_immer로_구현하기.md)
+
+[26.클래스 컴포넌트 소개](./chapters/26.클래스_컴포넌트_소개.md)
