@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 // 리액트를 사용하려면 React 를 import 해주어야한다.
 // 컴포넌트 는 대문자로 시작한다.
 // jsx를 리턴한다.
@@ -24,6 +24,23 @@ function Hello ({ color, name, isSpecial }) {
         </div>
     );
 }
+
+class Hello2 extends Component {
+    // default props를 지정해주는 다른 방법 
+    static defaultProps = {
+        name: '이름없음',
+        color: 'blue',
+    };
+    render () {
+        const { isSpecial, name, color } = this.props;
+        return (
+            <div style={{ color }} >
+                { isSpecial && <b>*</b> }
+                안녕하세요? { name }
+            </div>
+        );
+    };
+};
 
 Hello.defaultProps = {
     name: '이름없음',
