@@ -55,3 +55,5 @@
 [25.리듀서 immer로 구현하기](./chapters/25.리듀서_immer로_구현하기.md)
 
 [26.클래스 컴포넌트 소개](./chapters/26.클래스_컴포넌트_소개.md)
+
+[27.클래스형 컴포넌트의 state와 setState](./chapters/27.클래스형_컴포넌트의_state와_setState.md)
