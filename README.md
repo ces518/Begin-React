@@ -57,3 +57,5 @@
 [26.클래스 컴포넌트 소개](./chapters/26.클래스_컴포넌트_소개.md)
 
 [27.클래스형 컴포넌트의 state와 setState](./chapters/27.클래스형_컴포넌트의_state와_setState.md)
+
+[28.LifeCycle메서드](./chapters/28.LifeCycle메서드.md)
