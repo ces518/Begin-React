@@ -17,6 +17,11 @@ class ErrorBoundary extends Component {
         this.setState({
             error: true,
         });
+
+        if (process.env.NODE_ENV === 'production') {
+            // 프로덕션 환경일 경우 Sentry를 초기화
+            // Sentry.captureException(error, { extra: info });
+        }
     }
 
     render () {
