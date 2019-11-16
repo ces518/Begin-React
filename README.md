@@ -59,3 +59,9 @@
 [27.클래스형 컴포넌트의 state와 setState](./chapters/27.클래스형_컴포넌트의_state와_setState.md)
 
 [28.LifeCycle메서드](./chapters/28.LifeCycle메서드.md)
+
+[29.componentDidCatch](./chapters/29.componentDidCatch.md)
+
+[30.componentDidCatch와 Sentry연동](./chapters/30.componentDidCatch와_Sentry연동.md)
+
+[31.Prettier](./chapters/31.Prettier.md)
