@@ -5,7 +5,10 @@ import produce from 'immer';
 // App.css 를 불러와서 적용한다.
 import './App.css';
 import UserList from './UserList';
+import User from './User'
 import CreateUser from './CreateUser';
+import ErrorBoundary from './ErrorBoundary';
+
 
 function countActiveUsers (users) {
   console.log('활성된 사용자수 세는중 ...');
@@ -88,22 +91,38 @@ function App() {
   const count = useMemo(() => countActiveUsers(users), [users]);
   // return 에서 () 괄호는 가독성을 위해 사용하는것이다.
   // JSX가 한줄인 경우라면 생략해도 된다.
+
+  const user = {
+    id: 1,
+    username: 'juneyoung',
+  }
   return (
-    <UserDispatch.Provider value={dispatch}>
-       
-        {/* CreateUser 컴포넌트 */}
-        <CreateUser />
+    <>
+      {/* <UserDispatch.Provider value={dispatch}> */}
+          
+          {/* CreateUser 컴포넌트 */}
+          {/* <CreateUser /> */}
 
-        {/* UserList 컴포넌트  */}
-        <UserList users={users}/>
+          {/* UserList 컴포넌트  */}
+          {/* <UserList users={users}/> */}
 
-        {/* 활성화 된 사용자 수 */}
-        {/* 
-          활성화 혹은 비활성화를 시킬때 마다 새롭게 계산을 한다. 
-          문제: inputs 들의 상태가 변경되어도 리랜더링 되기때문에 리랜더링시 마다 활성 사용자수를 다시 세고있다.
-        */}
-        <div>활성 사용자수: { count }</div>
-    </UserDispatch.Provider>
+          {/* 활성화 된 사용자 수 */}
+          {/* 
+            활성화 혹은 비활성화를 시킬때 마다 새롭게 계산을 한다. 
+            문제: inputs 들의 상태가 변경되어도 리랜더링 되기때문에 리랜더링시 마다 활성 사용자수를 다시 세고있다.
+          */}
+          {/* <div>활성 사용자수: { count }</div> */}
+      {/* </UserDispatch.Provider> */}
+
+      {/* User props를 전달하지않으면 에러가 나게 되지만 */}
+      {/* 에러 처리를 하게 되면 User컴포넌트를 제외한 나머지 부분은 보이게 된다. */}
+      {/* ErrorBoundary로 감싸면 똑같이 에러메시지가 뜨지만, X로 닫았을때 에러 페이지가 보이게 된다. */}
+      <ErrorBoundary>
+        <User />
+      </ErrorBoundary>
+      <b>fsdfsdf</b>
+    </>
+    
   );
 }
 
