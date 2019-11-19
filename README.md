@@ -65,3 +65,7 @@
 [30.componentDidCatch와 Sentry연동](./chapters/30.componentDidCatch와_Sentry연동.md)
 
 [31.Prettier](./chapters/31.Prettier.md)
+
+[32.ESLint 소개](./chapters/32.ESLint.md)
+
+[33.ESLint 설정 커스터마이징](./chapters/33.ESLint설정_커스터마이징.md)
