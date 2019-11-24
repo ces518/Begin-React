@@ -8,17 +8,35 @@ $blue: #228be6; // 주석 !
     border: none;
     border-radius: 4px;
     cursor: pointer;
-
-    height: 2.25rem;
+    background: $blue;
     padding-left: 1rem;
     padding-right: 1rem;
-    font-size: 1rem;
 
-    background: $blue;
+    &.large {
+        height: 3rem;
+        font-size: 1.25rem;
+    }
+
+    &.medium {
+        height: 2.25rem;
+        font-size: 1rem;
+    }
+
+    &.small {
+        height: 1.75rem;
+        font-size: 0.875rem;
+    }
+    
     &:hover {
         background: lighten($blue, 10%);
     }
     &:active {
         background: darken($blue, 10%);
+    }
+    // & 는 자신을 가리키는 선택자이다.
+
+    // 같은게 옆에 있을경우 margin을 1rem 만큼 준다,
+    & + & {
+        margin-left: 1rem;
     }
 }
