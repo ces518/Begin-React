@@ -11,13 +11,16 @@ import './Button.scss';
 
 // color: blue, pink, gray
 // 기본색상은 gray로 한다.
-function Button ({ children, size, color }) {
+function Button ({ children, size, color, outline, fullWidth }) {
     return (
         <>
             {/* Array.join을 활용한 방법 */}
             {/* <button className={['Button', size].join(' ')}>{ children }</button> */}
             {/* classNames 모듈을 활용한 방법 */}
-            <button className={classNames('Button', size, color)}>{ children }</button>
+            <button className={classNames('Button', size, color, {
+                outline,
+                fullWidth,
+            })}>{ children }</button>
         </>
         
     );

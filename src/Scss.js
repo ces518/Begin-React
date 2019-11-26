@@ -22,6 +22,19 @@ function Scss () {
                 <Button color="pink">BUTTON</Button>
                 <Button color="pink" size="small">BUTTON</Button>
             </div>
+
+            {/* Props 명만 설정해주면 true로 지정한것과 동일하다. */}
+            <div className="buttons">
+                <Button outline size="large">BUTTON</Button>
+                <Button outline>BUTTON</Button>
+                <Button outline size="small">BUTTON</Button>
+            </div>
+
+            <div className="buttons">
+                <Button fullWidth size="large">BUTTON</Button>
+                <Button fullWidth>BUTTON</Button>
+                <Button fullWidth size="large">BUTTON</Button>
+            </div>
         </div>
     );
 };
