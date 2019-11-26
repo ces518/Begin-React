@@ -75,3 +75,7 @@
 [35.Sass](./chapters/36.Sass.md)
 
 [36.Sass버튼 - A Size Props설정하기](./chapters/37.Sass버튼_A_Size_Props설정하기.md)
+
+[37.Sass버튼 - B Colors Props설정하기](./chapters/38.Sass버튼_B_colors_props설정하기.md)
+
+[38.Sass버튼 - C outline fullWidth Props설정](./chapters/39.Sass버튼_C_outline_fullWidth_props설정.md)
