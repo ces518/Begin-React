@@ -8,13 +8,16 @@ import './Button.scss';
 // 조건부로 다양한 클래스명을 줘야할때 편리하다.
 // 문자열, 배열, 객체 등 다양한 조건으로 클래스명을 조합할 수 있다.
 // null undefined false 0 은 무시된다.
-function Button ({ children, size = 'medium' }) {
+
+// color: blue, pink, gray
+// 기본색상은 gray로 한다.
+function Button ({ children, size, color }) {
     return (
         <>
             {/* Array.join을 활용한 방법 */}
             {/* <button className={['Button', size].join(' ')}>{ children }</button> */}
             {/* classNames 모듈을 활용한 방법 */}
-            <button className={classNames('Button', size)}>{ children }</button>
+            <button className={classNames('Button', size, color)}>{ children }</button>
         </>
         
     );
@@ -24,6 +27,7 @@ function Button ({ children, size = 'medium' }) {
 // 가장 정석적인 방법은 defaultProps를 사용하는것이다.
 Button.defaultProps = {
     size: 'medium',
+    color: 'blue',
 };
 
 export default Button;
