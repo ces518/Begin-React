@@ -33,7 +33,12 @@ function Scss () {
             <div className="buttons">
                 <Button fullWidth size="large">BUTTON</Button>
                 <Button fullWidth>BUTTON</Button>
-                <Button fullWidth size="large">BUTTON</Button>
+                <Button 
+                    fullWidth 
+                    size="large" 
+                    onClick={() => console.log('click')}
+                    onMouseMove={() => console.log('mouse move')}
+                >BUTTON</Button>
             </div>
         </div>
     );
