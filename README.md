@@ -79,3 +79,7 @@
 [37.Sass버튼 - B Colors Props설정하기](./chapters/38.Sass버튼_B_colors_props설정하기.md)
 
 [38.Sass버튼 - C outline fullWidth Props설정](./chapters/39.Sass버튼_C_outline_fullWidth_props설정.md)
+
+[39.Sass버튼 D rest props 전달하기](./chapters/40.Sass버튼_D_rest_props_전달하기.md)
+
+[40.CSS Module](./chapters/41.CSS_Module.md)
