@@ -1,5 +1,22 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { darken, lighten } from 'polished';
+
+
+const colorStyles = css`
+    ${({ theme, color }) => {
+        const selectedColor = theme.palette[color];
+        return css`
+            background: ${selectedColor};
+            &:hover {
+                background: ${darken(0.1, selectedColor)};
+            }
+            &:active {
+                background: ${lighten(0.1, selectedColor)};
+            }
+        `;
+    }}
+`;
 
 const StyledButton = styled.button`
     /* 공통 스타일 */
@@ -18,13 +35,8 @@ const StyledButton = styled.button`
     font-size: 1rem;
 
     /* 색상 */
-    background: #228be6;
-    &:hover {
-        background: #339af0;
-    }
-    &:active {
-        background: #1c7ed6;
-    }
+    ${colorStyles};
+
 
     /* 기타 */
     & + & {
@@ -32,10 +44,19 @@ const StyledButton = styled.button`
     }
 `;
 
-function NewButton ({ children, ...rest }) {
+function NewButton ({ children, color, ...rest }) {
     return (
-        <StyledButton {...rest}>{children}</StyledButton>
+        <StyledButton 
+            color={color} 
+            {...rest}
+        >{children}</StyledButton>
     );
 };
+
+
+NewButton.defaultProps = {
+    color: 'blue',
+};
+
 
 export default NewButton;
