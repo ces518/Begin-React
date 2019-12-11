@@ -89,3 +89,7 @@
 [42.StyledComponents 버튼만들기](./chapters/43.StyledComponents_버튼만들기.md)
 
 [43.StyledComponents Polished스타일 함수](./chapters/44.StyledComponents_Polished스타일함수.md)
+
+[44.StyledComponents 버튼사이즈 조정하기](./chapters/45.StyledComponents_버튼사이즈조정하기.md)
+
+[45.StyledComponents outline fullWidth설정](./chapters/46.StyledComponents_outline_fullWidth설정.md)
