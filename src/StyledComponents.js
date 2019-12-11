@@ -31,13 +31,22 @@ const palette = {
     pink: '#f06595',
 };
 
+const ButtonGroup = styled.div`
+    & + & {
+        margin-top: 1rem;
+    }
+
+`;
+
 function StyledComponents () {
     return (
         <ThemeProvider theme={{palette}}>
             <AppBlock>
-                <NewButton>BUTTON</NewButton>
-                <NewButton color="gray">BUTTON</NewButton>
-                <NewButton color="pink">BUTTON</NewButton>
+                <ButtonGroup>
+                    <NewButton size="large">BUTTON</NewButton>
+                    <NewButton size="small" color="gray">BUTTON</NewButton>
+                    <NewButton color="pink">BUTTON</NewButton>
+                </ButtonGroup>
             </AppBlock>
         </ThemeProvider>
         
