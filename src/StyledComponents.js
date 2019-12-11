@@ -43,9 +43,9 @@ function StyledComponents () {
         <ThemeProvider theme={{palette}}>
             <AppBlock>
                 <ButtonGroup>
-                    <NewButton size="large">BUTTON</NewButton>
-                    <NewButton size="small" color="gray">BUTTON</NewButton>
-                    <NewButton color="pink">BUTTON</NewButton>
+                    <NewButton size="large" fullWidth>BUTTON</NewButton>
+                    <NewButton size="small" color="gray" fullWidth>BUTTON</NewButton>
+                    <NewButton color="pink" outline fullWidth>BUTTON</NewButton>
                 </ButtonGroup>
             </AppBlock>
         </ThemeProvider>
