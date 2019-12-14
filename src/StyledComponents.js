@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css, ThemeProvider } from 'styled-components';
 import NewButton from './components/NewButton';
+import Dialog from './components/Dialog';
 
 const Circle = styled.div`
     width: 5rem;
@@ -39,15 +40,38 @@ const ButtonGroup = styled.div`
 `;
 
 function StyledComponents () {
+    const [dialog, setDialog] = useState(false);
+    const onClick = () => {
+        setDialog(true);
+    };
+    const onConfirm = () => {
+        setDialog(false);
+    };
+    const onCancel = () => {
+        setDialog(false);
+    }
     return (
         <ThemeProvider theme={{palette}}>
-            <AppBlock>
-                <ButtonGroup>
-                    <NewButton size="large" fullWidth>BUTTON</NewButton>
-                    <NewButton size="small" color="gray" fullWidth>BUTTON</NewButton>
-                    <NewButton color="pink" outline fullWidth>BUTTON</NewButton>
-                </ButtonGroup>
-            </AppBlock>
+            <>
+                <AppBlock>
+                    <ButtonGroup>
+                        <NewButton size="large" fullWidth>BUTTON</NewButton>
+                        <NewButton size="small" color="gray" fullWidth>BUTTON</NewButton>
+                        <NewButton color="pink" outline fullWidth>BUTTON</NewButton>
+                    </ButtonGroup>
+                    <NewButton color="pink" size="large" onClick={onClick}>삭제</NewButton>
+                </AppBlock>
+                <Dialog 
+                    title="정말 삭제하시겠습니까 ?"
+                    confirmText="삭제" 
+                    cancelText="취소"
+                    visable={dialog}
+                    onConfirm={onConfirm}
+                    onCancel={onCancel}    
+                >
+                    데이터를 정말로 삭제하시겠습니까 ?
+                </Dialog>
+            </>
         </ThemeProvider>
         
     );
