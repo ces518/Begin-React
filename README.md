@@ -99,3 +99,5 @@
 [47.StyledComponents 트랜지션 구현하기](./chapters/48.StyledComponents_트랜지션구현하기.md)
 
 [48.TodoList 프로젝트 생성 UI 준비 1](./chapters/49.TodoList_프로젝트생성_UI준비1.md)
+
+[49.TodoList 프로젝트 생성 UI 준비 2](./chapters/50.TodoList_프로젝트생성_UI준비2.md)
