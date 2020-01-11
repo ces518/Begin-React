@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { MdDone, MdDelete } from 'react-icons/md';
+import { useTodoDispatch } from '../TodoContext';
 
 // TodoItemBlock 커서를 올렷을때만 Remove 아이콘을 보이게끔 한다.
 const Remove = styled.div`
@@ -58,15 +59,30 @@ const TodoItemBlock = styled.div`
 `;
 
 function TodoItem ({ id, done, text }) {
+    // 하나의 Context에서 state와 dispatch를 모두 가져왔다면, 컴포넌트 최적화가 힘듬
+    const dispatch = useTodoDispatch();
+
+    const onToggle = () => 
+        dispatch({
+            type: 'TOGGLE',
+            id
+        });
+
+    const onRemove = () => 
+        dispatch({
+            type: 'REMOVE',
+            id
+        });
+
     return (
        <TodoItemBlock>
-           <CheckCircle done={done}> {done && <MdDone />} </CheckCircle>
+           <CheckCircle done={done} onClick={onToggle}> {done && <MdDone />} </CheckCircle>
            <Text done={done}>{text}</Text>
-           <Remove>
+           <Remove onClick={onRemove}>
                <MdDelete />
            </Remove>
        </TodoItemBlock>
     );
 };
 
-export default TodoItem;
+export default React.memo(TodoItem);
