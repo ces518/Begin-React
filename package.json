@@ -10,6 +10,7 @@
     "npx": "^10.2.0",
     "polished": "^3.4.2",
     "react": "^16.10.1",
+    "react-async": "^10.0.0",
     "react-dom": "^16.10.1",
     "react-icons": "^3.8.0",
     "react-scripts": "^3.0.1",
