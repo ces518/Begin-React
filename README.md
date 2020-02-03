@@ -105,3 +105,13 @@
 [50.TodoList Context API를 활용한 상태관리](./chapters/51.TodoList_Context_API를_활용한_상태관리.md)
 
 [51.TodoList 기능 구현하기](./chapters/52.TodoList_기능구현하기.md)
+
+[52.API 소개](./chapters/53.API_소개.md)
+
+[53.API 연동의 기본](./chapters/54.API_연동의_기본.md)
+
+[54.useReducer로 요청상태 관리하기](./chapters/55.useReducer로_요청상태_관리하기.md)
+
+[55.useAsync 커스텀 Hook 만들어 사용하기](./chapters/56.useAsync_커스텀_Hook_만들어_사용하기.md)
+
+[56.react-async로 요청상태 관리하기](./chapters/57.react_async로_요청상태_관리하기.md)
