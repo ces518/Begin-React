@@ -1,0 +1,34 @@
+import React from 'react';
+import { Route, Link } from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+
+function App () {
+    return (
+        <div>
+            {/* 
+                Link 컴포넌트
+                - 특정 주소로 변경하도록 해주는 컴포넌트
+             */}
+            <ul>
+                <li>
+                    <Link to="/">홈</Link>
+                </li>
+                <li>
+                    <Link to="/about">소개</Link>
+                </li>
+            </ul>
+            <hr />
+            {/* 
+                Route 컴포넌트
+                - 특정주소에 따라 특정 컴포넌트를 보여주도록 지정하는 컴포넌트
+                exact 속성을 넣어주면 path가 완전히 일치할때만 보여준다. 
+                지정하지 않으면 /about으로 접근했을때도 Home 컴포넌트가 보인다.
+             */}
+            <Route path="/" component={Home} exact /> 
+            <Route path="/about" component={About}/>
+        </div>
+    );
+};
+
+export default App;
