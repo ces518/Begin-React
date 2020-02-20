@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
+import Profile from './Profile';
 
 function App () {
     return (
@@ -27,6 +28,11 @@ function App () {
              */}
             <Route path="/" component={Home} exact /> 
             <Route path="/about" component={About}/>
+            
+            {/* 
+                :username 이 Profile 컴포넌트의 match props를 통해 받을수 있는 URL 파라메터 키값이다.
+             */}
+            <Route path="/profiles/:username" component={Profile}/>
         </div>
     );
 };
