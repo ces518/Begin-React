@@ -122,4 +122,6 @@
 
 [59.Router 소개](./chapters/60.Router_소개.md)
 
-[60.Router 소개](./chapters/61.Router_프로젝트준비및_기본적인_사용법.md)
+[60.Router 프로젝트 준비 및 기본적인 사용법](./chapters/61.Router_프로젝트준비및_기본적인_사용법.md)
+
+[61.Router 파라미터와 쿼리](./chapters/62.Router_파라미터와_쿼리.md)
