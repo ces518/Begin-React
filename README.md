@@ -125,3 +125,9 @@
 [60.Router 프로젝트 준비 및 기본적인 사용법](./chapters/61.Router_프로젝트준비및_기본적인_사용법.md)
 
 [61.Router 파라미터와 쿼리](./chapters/62.Router_파라미터와_쿼리.md)
+
+[62.Router 서브라우트](./chapters/63.Router_서브라우트.md)
+
+[63.Router 라우터 부가기능 - history, withRouter](./chapters/64.Router_라우터_부가기능_history_withRouter.md)
+
+[64.Router 라우터 부가기능 - Switch, NavLink, 기타](./chapters/65.Router_라우터_부가기능_Switch_NavLink_기타.md)
