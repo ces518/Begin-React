@@ -10,7 +10,7 @@ function About ({ location }) {
         ignoreQueryPrefix: true, // 이 옵션을 넣어야 ? 가 사라진다.
     });
 
-    const defail = query.detail === 'true';
+    const detail = query.detail === 'true';
 
     return (
         <div>
