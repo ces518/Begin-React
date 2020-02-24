@@ -1,6 +1,6 @@
 import React from 'react';
 import Profile from './Profile';
-import { Link, Route } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import WithRouterSample from './WithRouterSample';
 
 function Profiles () {
@@ -8,8 +8,22 @@ function Profiles () {
         <div>
             <h3>사용자 목록</h3>
             <ul>
-                <li><Link to="/profiles/june">june</Link></li>
-                <li><Link to="/profiles/homer">homer</Link></li>
+                <li>
+                    <NavLink 
+                        to="/profiles/june" 
+                        activeStyle={{ background: 'black', color: 'white' }}
+                        activeClassName="active"
+                        isActive={() => {
+                            return true;
+                        }}
+                    >june</NavLink>
+                </li>
+                <li>
+                    <NavLink 
+                        to="/profiles/homer"
+                        activeStyle={{ background: 'red', color: 'white' }}
+                        >homer</NavLink>
+                </li>
             </ul>
             {/* 
                 render속성을 사용하면, 컴포넌트를 사용하는것이 아닌 바로 함수형 컴포넌트를 선언할 수 있음 
