@@ -4,6 +4,7 @@ import Home from './Home';
 import About from './About';
 import Profile from './Profile';
 import Profiles from './Profiles';
+import HistorySample from './HistorySample';
 
 function App () {
     return (
@@ -22,6 +23,9 @@ function App () {
                 <li>
                     <Link to="/profiles">프로필 목록</Link>
                 </li>
+                <li>
+                    <Link to="/history">예제</Link>
+                </li>
             </ul>
             <hr />
             {/* 
@@ -33,6 +37,7 @@ function App () {
             <Route path="/" component={Home} exact /> 
             <Route path="/about" component={About}/>
             <Route path="/profiles" component={Profiles}/>
+            <Route path="/history" component={HistorySample}/>
             {/* 
                 :username 이 Profile 컴포넌트의 match props를 통해 받을수 있는 URL 파라메터 키값이다.
              */}
