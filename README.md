@@ -131,3 +131,9 @@
 [63.Router 라우터 부가기능 - history, withRouter](./chapters/64.Router_라우터_부가기능_history_withRouter.md)
 
 [64.Router 라우터 부가기능 - Switch, NavLink, 기타](./chapters/65.Router_라우터_부가기능_Switch_NavLink_기타.md)
+
+[65.Redux - 소개](./chapters/66.Redux_소개.md)
+
+[66.Redux - 소개](./chapters/67.Redux_키워드.md)
+
+[67.Redux - 소개](./chapters/68.Redux_규칙.md)
